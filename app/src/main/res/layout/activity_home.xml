@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dashboard.HomeActivity">
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background"
+        app:layoutDescription="@xml/container_parent_scene">
+
+        <!-- Container Toolbar-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:paddingHorizontal="@dimen/dp_16"
+            app:layout_constraintBottom_toTopOf="@+id/layout_scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_menu"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/ic_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_search"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/ic_search"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/layout_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_toolbar">
+
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/layout_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                app:layoutDescription="@xml/container_main_scene">
+
+                <!-- Container Header Text-->
+
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/container_welcome_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:paddingHorizontal="@dimen/dp_16"
+                    app:layout_constraintBottom_toTopOf="@+id/container_send_receive"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layoutDescription="@xml/welcome_text_scene">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_hello"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:paddingVertical="@dimen/dp_0"
+                        android:singleLine="true"
+                        android:text="@string/hello"
+                        android:textColor="@color/color_text_dark_50"
+                        android:textSize="@dimen/font_18"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_user_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:paddingVertical="@dimen/dp_0"
+                        android:singleLine="true"
+                        android:text="David Patterson"
+                        android:textColor="@color/color_text_dark"
+                        android:textSize="@dimen/font_28"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_hello" />
+
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+                <!-- Container File Transfer-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_send_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_18"
+                    android:background="@drawable/bg_card_primary"
+                    android:padding="@dimen/dp_16"
+                    app:layout_constraintBottom_toTopOf="@+id/container_file_options"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_welcome_text">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_file_transfer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/file_transfer"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_16"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/transfer_files_with_friends_in_a_quick_way"
+                        android:textColor="@color/white_50"
+                        android:textSize="@dimen/font_14"
+                        app:layout_constraintBottom_toTopOf="@+id/layout_share_buttons"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_file_transfer" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_share_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_18"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_description">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/btn_send"
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_btn_send_receive"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/dp_16"
+                            android:paddingVertical="@dimen/dp_12"
+                            android:text="@string/send"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btn_receive"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/btn_receive"
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp_12"
+                            android:background="@drawable/bg_btn_send_receive"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/dp_16"
+                            android:paddingVertical="@dimen/dp_12"
+                            android:text="@string/receive"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btn_send"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Container File Options-->
+
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/container_file_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dp_16"
+                    app:layout_constraintBottom_toTopOf="@id/rv_friends"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_send_receive"
+                    app:layoutDescription="@xml/container_file_option_scene">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_videos"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_videos"
+                        android:drawableStart="@drawable/ic_videos"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:text="@string/videos"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_red"
+                        android:textSize="@dimen/font_14"
+                        app:layout_constraintBottom_toTopOf="@+id/btn_files"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_music"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_music"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:background="@drawable/bg_btn_music"
+                        android:drawableStart="@drawable/ic_music"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:text="@string/music"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_orange"
+                        android:textSize="@dimen/font_14"
+                        app:layout_constraintBottom_toTopOf="@+id/btn_photos"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_videos"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_files"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:background="@drawable/bg_btn_files"
+                        android:drawableStart="@drawable/ic_files"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:text="@string/files"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_green"
+                        android:textSize="@dimen/font_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_photos"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_videos" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_photos"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:background="@drawable/bg_btn_photos"
+                        android:drawableStart="@drawable/ic_photos"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:text="@string/photos"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_blue"
+                        android:textSize="@dimen/font_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_files"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_music" />
+
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+                <!--Container Friend List-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_16"
+                    app:layout_constraintBottom_toTopOf="@+id/container_web_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_file_options"
+                    tools:ignore="RtlSymmetry" />
+
+                <!--Container Web Share-->
+
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/container_web_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_16"
+                    android:background="@drawable/bg_web_share"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_friends"
+                    app:layoutDescription="@xml/container_web_share_scene">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_web_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_16"
+                        android:src="@drawable/ic_web_share"
+                        android:translationY="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/layout_web_share_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_web_share_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:padding="@dimen/dp_16"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img_web_share"
+                        app:layout_constraintVertical_bias="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_web_share"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="@string/web_share"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/font_16"
+                            app:layout_constraintBottom_toTopOf="@+id/tv_description_web_share"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_description_web_share"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="@string/now_easy_way_to_transfer_nfiles_with_browser"
+                            android:textColor="@color/color_primary_50"
+                            android:textSize="@dimen/font_14"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_web_share" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>

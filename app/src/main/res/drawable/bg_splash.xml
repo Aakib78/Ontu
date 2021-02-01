@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item >
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_primary"/>
+        </shape>
+    </item>
+
+    <item android:gravity="center">
+        <layer-list>
+            <item
+                android:id="@+id/splash_logo"
+                android:drawable="@drawable/ic_ontu_logo"
+                android:height="@dimen/dp_120"
+                android:width="@dimen/dp_80"
+                android:gravity="center"
+                android:end="@dimen/dp_120"
+                tools:ignore="UnusedAttribute"/>
+
+            <item
+                android:id="@+id/app_name"
+                android:drawable="@drawable/ic_app_name"
+                android:height="@dimen/dp_60"
+                android:width="@dimen/dp_140"
+                android:gravity="center"
+                android:start="@dimen/dp_110"
+                android:top="@dimen/dp_60"
+                tools:ignore="UnusedAttribute"/>
+
+        </layer-list>
+    </item>
+</layer-list>

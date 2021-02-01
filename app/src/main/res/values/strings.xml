@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Ontu</string>
+    <string name="hello">Hello</string>
+    <string name="file_transfer">File Transfer</string>
+    <string name="transfer_files_with_friends_in_a_quick_way">Transfer files with friends in a quick way.</string>
+    <string name="receive">Receive</string>
+    <string name="send">Send</string>
+    <string name="videos">Videos</string>
+    <string name="music">Music</string>
+    <string name="photos">Photos</string>
+    <string name="files">Files</string>
+    <string name="web_share">Web Share</string>
+    <string name="now_easy_way_to_transfer_nfiles_with_browser">Now easy way to transfer\nfiles with browser.</string>
+    <string name="choose_your_avatar">Choose Your Avatar</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="get_started">Get Started</string>
+</resources>

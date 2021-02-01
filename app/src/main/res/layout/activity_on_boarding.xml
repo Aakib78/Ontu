@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.onboarding.ActivityOnBoarding">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_choose_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_24"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="@string/choose_your_avatar"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/font_22"
+                app:layout_constraintBottom_toTopOf="@+id/rv_avatar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.darbin.ontu.custom.recyclerviews.HorizontalCarouselRecyclerView
+                android:id="@+id/rv_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_choose_avatar"
+                app:layout_constraintBottom_toTopOf="@+id/layout_et"/>
+
+            <com.darbin.ontu.custom.edittext.CustomEditText
+                android:id="@+id/layout_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                app:animatedTextSize="@dimen/font_16"
+                app:borderColor="@color/color_primary"
+                app:borderWidth="@dimen/dp_2"
+                app:cornerRadius="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_avatar"
+                app:layout_constraintBottom_toTopOf="@+id/img_share">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_name"
+                    android:textColorHint="@color/color_primary_50" />
+            </com.darbin.ontu.custom.edittext.CustomEditText>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_share"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="center"
+                android:padding="@dimen/dp_16"
+                android:src="@drawable/ic_undraw_share"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_et"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_start"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:background="@drawable/bg_btn_start"
+            android:drawableEnd="@drawable/ic_arrow_right_white"
+            android:drawablePadding="@dimen/dp_32"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_32"
+            android:text="@string/get_started"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_share"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
