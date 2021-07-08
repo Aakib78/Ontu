@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.askiitians.android.ui.allcourses.ActivityAllCourses">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_primary">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/dp_0"
+            android:background="@color/color_primary">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/back_button"
+                        android:layout_width="@dimen/dp_48"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:src="@drawable/ic_left_arrow" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:text="Select Files"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.darbin.ontu.custom.ontutablayout.OntuTabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_6"
+                app:AnimatedIndicator="lineMove"
+                app:IndicatorHeight="6dp"
+                app:tabGravity="fill"
+                app:tabTextAppearance="@style/TabText"
+                android:textAlignment="center"
+                app:tabTextColor="@color/white"
+                app:IndicatorColor="@android:color/white"
+                app:tabMode="fixed"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/files_listing_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

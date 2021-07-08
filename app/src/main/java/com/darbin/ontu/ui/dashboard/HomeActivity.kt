@@ -10,10 +10,8 @@ import com.darbin.ontu.custom.StartSnapHelper
 import com.darbin.ontu.data.models.Friend
 import com.darbin.ontu.data.prefs.AppPreferenceImp
 import com.darbin.ontu.databinding.ActivityHomeBinding
-import com.darbin.ontu.ui.onboarding.OnBoardingViewModel
-import com.darbin.ontu.utils.LayoutUtils
-import com.darbin.ontu.utils.toast
-import com.darbin.ontu.utils.viewModelProvider
+import com.darbin.ontu.ui.Router
+import com.darbin.ontu.utils.*
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(),FriendsListAdapter.OnItemClickListener,FriendsListAdapter.OnAddFriendClickListener {
@@ -25,6 +23,9 @@ class HomeActivity : AppCompatActivity(),FriendsListAdapter.OnItemClickListener,
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var router : Router
 
     private fun getViewModel(): HomeViewModel {
         return viewModelProvider(viewModelFactory)
@@ -44,12 +45,29 @@ class HomeActivity : AppCompatActivity(),FriendsListAdapter.OnItemClickListener,
     private fun initViews() {
         val snapHelper =StartSnapHelper()
         binding.rvFriends.layoutManager=LayoutUtils.getHorizontalLayoutManager(this)
-        adapter= FriendsListAdapter()
+        adapter = FriendsListAdapter()
         adapter?.setOnItemClickListener(this)
         adapter?.setOnAddFriendClickListener(this)
         binding.rvFriends.adapter=adapter
         snapHelper.attachToRecyclerView(binding.rvFriends)
         adapter?.updateItems(getViewModel().getFriendsList())
+
+
+        binding.btnPhotos.setOnClickListener {
+            router.showFilesListing(this, TAB_IMAGES)
+        }
+
+        binding.btnFiles.setOnClickListener {
+            router.showFilesListing(this, TAB_FILES)
+        }
+
+        binding.btnMusic.setOnClickListener {
+            router.showFilesListing(this, TAB_MUSIC)
+        }
+
+        binding.btnVideos.setOnClickListener {
+            router.showFilesListing(this, TAB_VIDEOS)
+        }
 
         if (appPreferenceImp.getUser()!=null){
             binding.tvUserName.text= appPreferenceImp.getUser()!!.userName

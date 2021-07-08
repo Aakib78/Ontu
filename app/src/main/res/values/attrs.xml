@@ -7,4 +7,14 @@
         <attr name="animatedTextSize" format="dimension" />
         <attr name="animationDuration" format="integer" />
     </declare-styleable>
+
+    <!--    OntuTabLayout -->
+    <declare-styleable name="OntuTabLayout">
+        <attr name="IndicatorHeight" format="dimension" />
+        <attr name="IndicatorColor" format="color" />
+        <attr name="CenterAlign" format="boolean" />
+        <attr name="AnimatedIndicator" format="enum">
+            <enum name="lineMove" value="0" />
+        </attr>
+    </declare-styleable>
 </resources>
