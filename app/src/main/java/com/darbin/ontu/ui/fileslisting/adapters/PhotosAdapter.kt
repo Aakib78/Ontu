@@ -39,7 +39,7 @@ class PhotosAdapter(private val list: List<GalleryImage>) : RecyclerView.Adapter
         selectedIndexList = ArrayList(selectionLimit)
     }
 
-    fun setSelectionLimit(selectionLimit: Int) {
+    private fun setSelectionLimit(selectionLimit: Int) {
         this.selectionLimit = selectionLimit
         removedSelection()
         initSelectedIndexList()
@@ -152,7 +152,7 @@ class PhotosAdapter(private val list: List<GalleryImage>) : RecyclerView.Adapter
         list[it]
     }
 
-    fun removedSelection(): Boolean {
+    private fun removedSelection(): Boolean {
         return if (isSelectionEnabled) {
             selectedIndexList.forEach {
                 list[it].isSelected = false

@@ -91,7 +91,7 @@ class ImagesFragment : Fragment() {
         rv.adapter = adapter
 
         adapter.setOnClickListener { galleryPicture ->
-            showToast(galleryPicture.path)
+            showToast(galleryPicture.size)
         }
 
         adapter.setAfterSelectionListener {

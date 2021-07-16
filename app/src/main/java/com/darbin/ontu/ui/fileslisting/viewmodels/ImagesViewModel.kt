@@ -65,9 +65,10 @@ class ImagesViewModel @Inject constructor(
 
             for (i in startingRow until rowsToLoad) {
                 cursor.moveToPosition(i)
-                val dataColumnIndex =
-                    cursor.getColumnIndex(MediaStore.MediaColumns._ID) //get column index
-                galleryImageUrls.add(GalleryImage(getImageUri(cursor.getString(dataColumnIndex)).toString())) //get Image path from column index
+                val dataColumnIndex = cursor.getColumnIndex(MediaStore.MediaColumns._ID)
+                val name = cursor.getColumnIndex(MediaStore.MediaColumns.TITLE)
+                val size = cursor.getColumnIndex(MediaStore.MediaColumns.SIZE)
+                galleryImageUrls.add(GalleryImage(getImageUri(cursor.getString(dataColumnIndex)).toString(),name.toString(),size.toString())) //get Image path from column index
 
             }
             Log.i("TotalGallerySize", "$totalRows")
